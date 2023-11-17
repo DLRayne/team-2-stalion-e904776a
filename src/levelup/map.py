@@ -18,8 +18,17 @@ class Map ():
         return 0 <= position.x < self.size[0] and 0 <= position.y < self.size[1]       
 
     def calculate_new_position(self, current_position: Position, direction: Direction) -> Position:
-        new_x = current_position.x + direction.get_delta_x()
-        new_y = current_position.y + direction.get_delta_y()
+        new_x=current_position.x
+        new_y=current_position.y
+        if(direction==Direction.EAST):
+            new_x = current_position.x + 1
+        if(direction==Direction.WEST):
+            new_x=current_position.x-1
+        if(direction==Direction.NORTH):
+            new_y = current_position.y + 1
+        if(direction==Direction.SOUTH):
+            new_y = current_position.y -1
+
 
         new_position = Position(new_x, new_y)
 
