@@ -54,7 +54,7 @@ class GameController:
         self.status.current_position = xycoordinates
 
     def set_current_move_count(self, move_count: int) -> None:
-        self.status.move_count = move_count+1
+        self.status.move_count = move_count
 
     def get_total_positions(self) -> int:
         return self.map.num_positions
