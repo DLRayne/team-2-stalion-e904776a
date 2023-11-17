@@ -24,8 +24,9 @@ class GameController:
 
     def start_game(self):
         if not hasattr(self, 'character'):
-            return           
-
+            return    
+        self.map = Map()       
+        self.character.enter_map(self.map)
         # Status code is written for you
         self.status.current_position = (self.character.current_position.x, self.character.current_position.y)
         self.status.move_count = 0
@@ -35,10 +36,10 @@ class GameController:
         self.character = Character(character_name)
         self.status.character_name = self.character.name
 
-    def move(self, direction: Direction) -> None:
+    def move(self, direction: Direction):
         if not hasattr(self, 'character') or not hasattr(self, 'map'):
             return
-
+        self.character.move(direction)
         # Status code is written for you
         self.status.current_position = (self.character.current_position.x, self.character.current_position.y)
         self.status.move_count = self.status.move_count + 1
@@ -53,7 +54,7 @@ class GameController:
         self.status.current_position = xycoordinates
 
     def set_current_move_count(self, move_count: int) -> None:
-        self.status.move_count = move_count
+        self.status.move_count = move_count+1
 
     def get_total_positions(self) -> int:
         return self.map.num_positions

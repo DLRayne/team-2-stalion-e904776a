@@ -7,3 +7,8 @@ class Direction(Enum):
     SOUTH = "s"
     EAST = "e"
     WEST = "w"
+
+    def get_delta_x(self):
+        return 1
+    def get_delta_y(self):
+        return 1
