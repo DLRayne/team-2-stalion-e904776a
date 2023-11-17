@@ -1,7 +1,7 @@
 class Position ():
 
-    x = 0
-    y = 0
+    x = -100
+    y = -100
 
     def __init__(self, x: int, y: int):
         self.x = x
